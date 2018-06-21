@@ -5,7 +5,7 @@ const cache = new CachemanFile({tmpDir: '/home/bitminer/nodemap/.cache', ttl: 24
 
 const getPeers = async () => {
     try {
-        const res = await axios.get('http://bitminercoin.org:9998/peers');
+        const res = await axios.get('http://bitminercoin.org:9998/getpeers');
         if (!res.data.peers) throw new Error('Missing peers.');
         console.log(`${res.data.peers.length} peers found`);
         return res.data.peers;
